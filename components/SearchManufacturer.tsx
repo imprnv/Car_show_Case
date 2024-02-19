@@ -36,16 +36,36 @@ const SearchManufacturer = ({manufacturer,setManufacturer}:SearchManufacturerPro
                 leaveTo="opacity-0"
                 afterLeave={() => setQuery('')} >
                     <Combobox.Options>
-                        {filterManufactures.length===0&&query!=="" ?(<Combobox.Option value={query} className="search_manufacturer__option">Create "{query}" </Combobox.Option>):(
-                            filterManufactures.map((item) => <Combobox.Option 
+                        
+                            {filterManufactures.map((item) => (<Combobox.Option 
                             key={item}
                             className={({active}) => `relative search-manufacturer__option
                             ${active ? 'bg-primary-blue text white':'text-gray-900'}
                             `} value={item}>
-                                {item}
+                                               {({ selected, active }) => (
+                      <>
+                        <span
+                          className={`block truncate ${
+                            selected ? 'font-small' : 'font-normal'
+                          }`}
+                        >
+                          {item}
+                        </span>
+                        {selected ? (
+                          <span
+                            className={`absolute inset-y-0 left-0 flex items-center pl-3 ${
+                              active ? 'text-black' : 'text-green-700'
+                            }`}
+                          >
+                            
+                          </span>
+                        ) : null}
+                      </>
+                    )}
                             </Combobox.Option>
-                        ))}
-                    </Combobox.Options>
+                            )) }
+                        
+                    </ Combobox.Options>
                 </Transition>
 
                 

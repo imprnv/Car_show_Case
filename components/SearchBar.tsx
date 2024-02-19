@@ -1,6 +1,6 @@
 "use client"
 import React from 'react'
-import {SearchManufacturer} from './SearchManufactuturer'
+import SearchManufacturer from './SearchManufacturer'
 import {useState} from 'react'
 export const SearchBar = () => {
     const [manufacturer,setManufacturer]=useState("")
